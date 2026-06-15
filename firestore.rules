@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // SinaPro Catalog Items Collection
+    match /sinapro_catalog_items/{itemId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // SinaPro Campaign Budgets Collection
+    match /sinapro_campaign_budgets/{budgetId} {
+      allow read, write: if true;
+    }
+  }
+}

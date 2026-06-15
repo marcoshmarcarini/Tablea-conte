@@ -1,0 +1,6 @@
+{
+  "name": "Gestor de Campanhas Públicas",
+  "description": "Sistema de gestão de peças de campanhas e orçamentos para prefeituras.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

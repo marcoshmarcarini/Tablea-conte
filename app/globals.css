@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  }
+}
+
+/* Print-only media query for clean, paper-perfect hard copy proposals */
+@media print {
+  /* Hide navigation, buttons, and decorative web elements */
+  nav,
+  header,
+  footer,
+  aside,
+  button,
+  .no-print,
+  .print-hidden,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Page setup & basic resetting for optimal space */
+  @page {
+    size: A4 portrait;
+    margin: 1.2cm 1.5cm;
+  }
+
+  /* Force light backgrounds, solid colors and hide scrollbars */
+  html,
+  body {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Reset outer system containers for the layout sheets */
+  .max-w-6xl,
+  .max-w-7xl,
+  .mx-auto,
+  .w-full,
+  main,
+  div {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+
+  /* Keep proposal containers styled elegantly for print with a clean page layout */
+  .print-proposal-card {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 8px !important;
+    padding: 1.5rem !important;
+    margin-top: 1rem !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+  }
+
+  /* Optimize statistical tables & details */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin-top: 1.5rem !important;
+    margin-bottom: 2rem !important;
+    font-size: 10pt !important;
+    page-break-inside: auto !important;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+    page-break-after: auto !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+    background-color: #f8fafc !important;
+  }
+
+  th {
+    border-bottom: 2px solid #cbd5e1 !important;
+    color: #1e293b !important;
+    font-weight: 800 !important;
+    padding: 10px 14px !important;
+    text-transform: uppercase !important;
+    font-size: 8pt !important;
+  }
+
+  td {
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding: 10px 14px !important;
+    color: #334155 !important;
+  }
+
+  /* Ensure text elements stand out and do not wash out */
+  .text-[#6204bd], 
+  .text-indigo-600 {
+    color: #4c1d95 !important;
+  }
+
+  .text-slate-800,
+  .text-slate-900 {
+    color: #0f172a !important;
+  }
+
+  .text-slate-400,
+  .text-slate-500 {
+    color: #475569 !important;
+  }
+
+  /* Format physical page break sections cleanly */
+  .page-break {
+    page-break-before: always !important;
+  }
+
+  /* Keep badge text legible under standard printers */
+  .bg-[#6204bd]\/10 {
+    background-color: #f5f3ff !important;
+    border: 1px solid #ddd6fe !important;
+  }
+}
+
+/* Custom fade-in and smooth entry transitions for high production quality */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

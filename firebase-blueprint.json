@@ -1,0 +1,45 @@
+{
+  "entities": {
+    "SinaProItem": {
+      "title": "SinaProItem",
+      "description": "SinaPro standard classification code and service item specifications.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "basePriceCreated": { "type": "number" },
+        "basePriceAdapted": { "type": "number" }
+      },
+      "required": ["id", "code", "name", "category", "basePriceCreated", "basePriceAdapted"]
+    },
+    "CampaignBudget": {
+      "title": "CampaignBudget",
+      "description": "Campaign Budget details and its nested piece items.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "invoiceNumber": { "type": "string" },
+        "publicAgency": { "type": "string" },
+        "clientName": { "type": "string" },
+        "projectName": { "type": "string" },
+        "date": { "type": "string" },
+        "discountPercentage": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "pieces": { "type": "array" }
+      },
+      "required": ["id", "invoiceNumber", "publicAgency", "clientName", "projectName", "discountPercentage", "pieces", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/sinapro_catalog_items/{id}": {
+      "schema": "SinaProItem",
+      "description": "SinaPro standard services catalog"
+    },
+    "/sinapro_campaign_budgets/{id}": {
+      "schema": "CampaignBudget",
+      "description": "List of campaign budgets"
+    }
+  }
+}
