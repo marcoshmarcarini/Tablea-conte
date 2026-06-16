@@ -1,10 +1,10 @@
 {
-  "name": "ai-studio-applet",
+  "name": "Tabela Conte",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "rm -rf .next && next build",
+    "build": "next build --output public",
     "start": "node server.ts",
     "lint": "next lint"
   },
